@@ -32,7 +32,7 @@ public class CosTest {
 
     @ParameterizedTest(name = "Calculate cos({0})")
     @CsvFileSource(resources = "/trig_cos_data.csv")
-    void dataTest(double expected, double inputDeg) {
+    void dataDegreeTest(double expected, double inputDeg) {
         double input = inputDeg / 180 * Math.PI;
         double actual = cos.calculate(input);
         System.out.printf("expected = %9f | inputDegrees = %9f | inputRad = %9f | actual = %9f\n",
