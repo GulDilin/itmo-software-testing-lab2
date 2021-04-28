@@ -4,8 +4,8 @@ import guldilin.function.AbstractFunction;
 
 public class Cot extends AbstractFunction {
 
-    private Cos cos;
-    private Sin sin;
+    private final Cos cos;
+    private final Sin sin;
 
     public Cot() {
         this.cos = new Cos();
@@ -14,6 +14,8 @@ public class Cot extends AbstractFunction {
 
     @Override
     public double calculate(double value) {
+        if (Math.abs(value) < ACCURACY) return Double.POSITIVE_INFINITY;
+        if (Math.abs(value - Math.PI) < ACCURACY) return Double.NEGATIVE_INFINITY;
         return cos.calculate(value) / sin.calculate(value);
     }
 }
