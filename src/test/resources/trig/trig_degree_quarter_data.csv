@@ -1,4 +1,4 @@
-#angle (deg)    quarter (0-3)
+#angle (deg)    expected quarter (0-3)
 1,              0
 60,             0
 89,             0
