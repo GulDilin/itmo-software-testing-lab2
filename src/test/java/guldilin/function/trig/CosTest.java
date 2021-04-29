@@ -23,7 +23,7 @@ public class CosTest {
 
     @ParameterizedTest(name = "Calculate cos({0})")
     @CsvFileSource(resources = "/trig/trig_cos_pi_data.csv")
-    void dataPITest(double expected, int nominator, int denominator) {
+    void dataPITest(int nominator, int denominator, double expected) {
         double input = (nominator * Math.PI) / denominator;
         double actual = fun.calculate(input);
         System.out.printf("expected = %9f | nominator = %3d | denominator = %3d | input = %9f | actual = %9f\n",
