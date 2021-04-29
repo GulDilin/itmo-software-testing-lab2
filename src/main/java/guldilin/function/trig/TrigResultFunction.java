@@ -24,18 +24,20 @@ public class TrigResultFunction extends AbstractFunction {
         double result = sin.calculate(x) / tan.calculate(x);
         result *= result * result;
         result /= tan.calculate(x);
+        result += tan.calculate(x);
         result -= csc.calculate(x);
         result += cot.calculate(x);
         result *= result;
         result *= result;
         result /= tan.calculate(x);
 
-        result /= cot.calculate(x) + (csc.calculate(x) - sec.calculate(x)) / sec.calculate(x);
-        result += sin.calculate(x);
+        result /= (cot.calculate(x) + (csc.calculate(x) - sec.calculate(x)) / sec.calculate(x));
+        result *= sin.calculate(x);
         result -= (tan.calculate(x) / sin.calculate(x));
 
-        result *= (tan.calculate(x) * ((cos.calculate(x) + sin.calculate(x)) / cos.calculate(x)) - sin.calculate(x));
+        result *= (tan.calculate(x) * (((cos.calculate(x) + sin.calculate(x)) / cos.calculate(x)) - sin.calculate(x)));
         result *= result * result;
+
         return result;
     }
 

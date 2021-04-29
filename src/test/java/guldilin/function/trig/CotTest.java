@@ -23,6 +23,19 @@ public class CotTest {
     }
 
     @ParameterizedTest
+    @CsvFileSource(resources = "/trig/trig_cot_data.csv")
+    void dataDegreeTestStub(double inputDeg, double expected) {
+        Cot cot = new Cot();
+        cot.setCos(TrigMocks.createCosMock());
+        cot.setSin(TrigMocks.createSinMock());
+        double input = inputDeg / 180 * Math.PI;
+        double actual = cot.calculate(input);
+        System.out.printf("expected = %9f | inputDegrees = %9f | inputRad = %9f | actual = %9f\n",
+                expected, inputDeg, input, actual);
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @ParameterizedTest
     @CsvFileSource(resources = "/trig/trig_cot_pi_data.csv")
     void dataPITest(int nominator, int denominator, double expected) {
         double input = (nominator * Math.PI) / denominator;

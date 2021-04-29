@@ -22,6 +22,18 @@ public class CscTest {
     }
 
     @ParameterizedTest
+    @CsvFileSource(resources = "/trig/trig_csc_data.csv")
+    void dataDegreeTestStub(double inputDeg, double expected) {
+        Csc csc = new Csc();
+        csc.setSin(TrigMocks.createSinMock());
+        double input = inputDeg / 180 * Math.PI;
+        double actual = csc.calculate(input);
+        System.out.printf("expected = %9f | inputDegrees = %9f | inputRad = %9f | actual = %9f\n",
+                expected, inputDeg, input, actual);
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @ParameterizedTest
     @CsvFileSource(resources = "/trig/trig_csc_pi_data.csv")
     void dataPITest(int nominator, int denominator, double expected) {
         double input = (nominator * Math.PI) / denominator;

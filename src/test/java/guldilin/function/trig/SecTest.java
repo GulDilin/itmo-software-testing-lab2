@@ -23,6 +23,18 @@ public class SecTest {
     }
 
     @ParameterizedTest
+    @CsvFileSource(resources = "/trig/trig_sec_data.csv")
+    void dataDegreeTestStub(double inputDeg, double expected) {
+        Sec sec = new Sec();
+        sec.setCos(TrigMocks.createCosMock());
+        double input = inputDeg / 180 * Math.PI;
+        double actual = sec.calculate(input);
+        System.out.printf("expected = %9f | inputDegrees = %9f | inputRad = %9f | actual = %9f\n",
+                expected, inputDeg, input, actual);
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @ParameterizedTest
     @CsvFileSource(resources = "/trig/trig_sec_pi_data.csv")
     void dataPITest(int nominator, int denominator, double expected) {
         double input = (nominator * Math.PI) / denominator;

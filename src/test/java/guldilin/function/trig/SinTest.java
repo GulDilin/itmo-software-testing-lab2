@@ -22,6 +22,18 @@ public class SinTest {
     }
 
     @ParameterizedTest
+    @CsvFileSource(resources = "/trig/trig_sin_data.csv")
+    void dataDegreeTestStub(double inputDeg, double expected) {
+        Sin sin = new Sin();
+        sin.setCos(TrigMocks.createCosMock());
+        double input = inputDeg / 180 * Math.PI;
+        double actual = sin.calculate(input);
+        System.out.printf("expected = %9f | inputDegrees = %9f | inputRad = %9f | actual = %9f\n",
+                expected, inputDeg, input, actual);
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @ParameterizedTest
     @CsvFileSource(resources = "/trig/trig_sin_pi_data.csv")
     void dataPITest(int nominator, int denominator, double expected) {
         double input = (nominator * Math.PI) / denominator;
@@ -33,7 +45,7 @@ public class SinTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/trig/trig_sin_data.csv")
-    void dataDegreeTest(double expected, double inputDeg) {
+    void dataDegreeTest(double inputDeg, double expected) {
         double input = inputDeg / 180 * Math.PI;
         double actual = fun.calculate(input);
         System.out.printf("expected = %9f | inputDegrees = %9f | inputRad = %9f | actual = %9f\n",
