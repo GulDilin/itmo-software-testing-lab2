@@ -22,7 +22,7 @@ public class CosTest {
     }
 
     @ParameterizedTest(name = "Calculate cos({0})")
-    @CsvFileSource(resources = "/trig_cos_pi_data.csv")
+    @CsvFileSource(resources = "/trig/trig_cos_pi_data.csv")
     void dataPITest(double expected, int nominator, int denominator) {
         double input = (nominator * Math.PI) / denominator;
         double actual = fun.calculate(input);
@@ -32,7 +32,7 @@ public class CosTest {
     }
 
     @ParameterizedTest(name = "Calculate cos({0})")
-    @CsvFileSource(resources = "/trig_cos_data.csv")
+    @CsvFileSource(resources = "/trig/trig_cos_data.csv")
     void dataDegreeTest(double expected, double inputDeg) {
         double input = inputDeg / 180 * Math.PI;
         double actual = fun.calculate(input);

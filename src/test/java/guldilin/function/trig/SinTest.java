@@ -22,7 +22,7 @@ public class SinTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/trig_sin_pi_data.csv")
+    @CsvFileSource(resources = "/trig/trig_sin_pi_data.csv")
     void dataPITest(double expected, int nominator, int denominator) {
         double input = (nominator * Math.PI) / denominator;
         double actual = fun.calculate(input);
@@ -32,7 +32,7 @@ public class SinTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/trig_sin_data.csv")
+    @CsvFileSource(resources = "/trig/trig_sin_data.csv")
     void dataDegreeTest(double expected, double inputDeg) {
         double input = inputDeg / 180 * Math.PI;
         double actual = fun.calculate(input);
