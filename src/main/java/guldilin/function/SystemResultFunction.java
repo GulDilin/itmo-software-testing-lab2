@@ -17,4 +17,12 @@ public class SystemResultFunction extends AbstractFunction {
         if (value <= 0) return trigResultFunction.calculate(value);
         return logResultFunction.calculate(value);
     }
+
+    public void setLogResultFunction(LogResultFunction logResultFunction) {
+        this.logResultFunction = logResultFunction;
+    }
+
+    public void setTrigResultFunction(TrigResultFunction trigResultFunction) {
+        this.trigResultFunction = trigResultFunction;
+    }
 }
