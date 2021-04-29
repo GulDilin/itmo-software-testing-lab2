@@ -5,7 +5,7 @@ import guldilin.function.AbstractFunction;
 public class Ln extends AbstractFunction {
     @Override
     public double calculate(double value) {
-        if (value <= 0) throw new IllegalArgumentException("Value need to be upper that zero");
+        if (value <= 0) throw new IllegalArgumentException("Value need to be upper then zero");
         if (value > 2) return -calculate(1 / value);
 
         double x = value - 1;
