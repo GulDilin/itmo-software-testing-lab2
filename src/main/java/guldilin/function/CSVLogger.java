@@ -17,7 +17,7 @@ public class CSVLogger {
 
     public CSVLogger(String fileName, double start, double end, double step) {
         this.setFilePath(fileName);
-        this.separator = ",";
+        this.separator = ";";
         this.start = start;
         this.end = end;
         this.step = step;
