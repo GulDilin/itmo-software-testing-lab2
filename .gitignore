@@ -1,2 +1,4 @@
 /.idea/
 /software-testing-lab2.iml
+/target/
+graph_*.csv
