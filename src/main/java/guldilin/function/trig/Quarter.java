@@ -9,19 +9,18 @@ public enum Quarter {
     RIGHT_BOTTOM;
 
     static Quarter of(double angle) {
-        double n = angle % (2 * PI);
+        double n = cropAnglePositive(angle);
 
         if (n <= PI / 2 && n >= 0) return Quarter.RIGHT_TOP;
         if (n <= PI && n >= PI / 2) return Quarter.LEFT_TOP;
         if (n <= PI * 3 / 2 && n >= PI) return Quarter.LEFT_BOTTOM;
         if (n <= PI * 2 && n >= PI * 3 / 2) return Quarter.RIGHT_BOTTOM;
 
-        if (n <= 0 && n >= -(PI / 2)) return Quarter.RIGHT_BOTTOM;
-        if (n <= -(PI / 2) && n >= -PI) return Quarter.LEFT_BOTTOM;
-        if (n <= -PI && n >= -(PI * 3 / 2)) return Quarter.LEFT_TOP;
-        if (n <= -(PI * 3 / 2) && n >= -PI * 2) return Quarter.RIGHT_TOP;
-
         throw new IllegalArgumentException("Cant define quarter");
+    }
+
+    static double cropAnglePositive(double angle) {
+        return (angle % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
     }
 
     boolean isTop() {

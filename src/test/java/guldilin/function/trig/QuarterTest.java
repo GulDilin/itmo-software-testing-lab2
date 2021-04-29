@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @DisplayName("Quarter tests")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class QuarterTest {
+    private final double DELTA = 0.001D;
 
     @ParameterizedTest
     @CsvFileSource(resources = "/trig/trig_radian_quarter_data.csv")
@@ -58,5 +59,14 @@ public class QuarterTest {
         double radian = degree / 180 * Math.PI;
         Quarter actualQuarter = Quarter.of(radian);
         assertTrue(actualQuarter.isLeft());
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/trig/trig_quarter_crop_data.csv")
+    public void quarterCropAnglePositiveTest(double inputDegree, int expectedDegree) {
+        double inputRadian = inputDegree / 180D * Math.PI;
+        double expectedRadian = expectedDegree / 180D * Math.PI;
+        double actualRadian = Quarter.cropAnglePositive(inputRadian);
+        assertEquals(expectedRadian, actualRadian, DELTA);
     }
 }
