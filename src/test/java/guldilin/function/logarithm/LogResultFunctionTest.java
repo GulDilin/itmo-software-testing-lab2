@@ -1,6 +1,8 @@
 package guldilin.function.logarithm;
 
+import guldilin.function.CSVLogger;
 import guldilin.function.Calculable;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.TestInstance;
@@ -18,6 +20,12 @@ public class LogResultFunctionTest {
     @BeforeAll
     void setUp() {
         fun = new LogResultFunction();
+    }
+
+    @AfterAll
+    void log() {
+        CSVLogger logger = new CSVLogger("graph_log_result_function.csv", 0.01, 5, 0.1);
+        logger.log(fun);
     }
 
     @ParameterizedTest()

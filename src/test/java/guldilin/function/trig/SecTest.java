@@ -1,6 +1,8 @@
 package guldilin.function.trig;
 
+import guldilin.function.CSVLogger;
 import guldilin.function.Calculable;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.TestInstance;
@@ -20,6 +22,12 @@ public class SecTest {
     @BeforeAll
     void setUp() {
         fun = new Sec();
+    }
+
+    @AfterAll
+    void log() {
+        CSVLogger logger = new CSVLogger("graph_trig_sec.csv", 1, 5, 0.1);
+        logger.log(fun);
     }
 
     @ParameterizedTest

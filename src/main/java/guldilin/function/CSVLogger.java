@@ -15,9 +15,9 @@ public class CSVLogger {
     private double start;
     private double end;
 
-    public CSVLogger(String fileName, double start, double end, double step, String separator) {
+    public CSVLogger(String fileName, double start, double end, double step) {
         this.setFilePath(fileName);
-        this.separator = separator;
+        this.separator = ",";
         this.start = start;
         this.end = end;
         this.step = step;
@@ -27,7 +27,7 @@ public class CSVLogger {
         this.filePath = "src/test/resources/" + fileName;
     }
 
-    public void log(AbstractFunction fun) {
+    public void log(Calculable fun) {
         try {
             Files.deleteIfExists(Paths.get(this.filePath));
         } catch (IOException e) {
@@ -42,4 +42,11 @@ public class CSVLogger {
         }
     }
 
+    public String getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(String separator) {
+        this.separator = separator;
+    }
 }
