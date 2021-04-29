@@ -3,7 +3,7 @@ package guldilin.function.trig;
 import guldilin.function.AbstractFunction;
 
 public class Sin extends AbstractFunction {
-    private final Cos cos;
+    private Cos cos;
 
     public Sin() {
         this.cos = new Cos();
@@ -14,5 +14,9 @@ public class Sin extends AbstractFunction {
         double value = Math.sqrt(1 - cos.calculate(x) * cos.calculate(x));
         Quarter quarter = Quarter.of(x);
         return quarter.isTop() ? value : -value;
+    }
+
+    public void setCos(Cos cos) {
+        this.cos = cos;
     }
 }

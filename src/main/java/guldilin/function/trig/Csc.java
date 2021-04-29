@@ -3,7 +3,7 @@ package guldilin.function.trig;
 import guldilin.function.AbstractFunction;
 
 public class Csc extends AbstractFunction {
-    private final Sin sin;
+    private Sin sin;
 
     public Csc() {
         this.sin = new Sin();
@@ -12,5 +12,9 @@ public class Csc extends AbstractFunction {
     @Override
     public double calculate(double value) {
         return 1 / sin.calculate(value);
+    }
+
+    public void setSin(Sin sin) {
+        this.sin = sin;
     }
 }
