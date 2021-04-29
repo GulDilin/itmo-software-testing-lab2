@@ -15,8 +15,11 @@ public class Tan extends AbstractFunction {
     @Override
     public double calculate(double value) {
         double accuracy = getAccuracy();
-        if (Math.abs(value - Math.PI / 2) < accuracy) return Double.POSITIVE_INFINITY;
-        if (Math.abs(value - Math.PI * 3 / 2) < accuracy) return Double.NEGATIVE_INFINITY;
+        double cropValue = value % (2 * Math.PI);
+        if (Math.abs(cropValue - Math.PI / 2) < accuracy) return Double.POSITIVE_INFINITY;
+        if (Math.abs(cropValue + 5 * Math.PI / 2) < accuracy) return Double.POSITIVE_INFINITY;
+        if (Math.abs(cropValue + Math.PI * 3 / 2) < accuracy) return Double.NEGATIVE_INFINITY;
+        if (Math.abs(cropValue - 5 * Math.PI * 3 / 2) < accuracy) return Double.NEGATIVE_INFINITY;
         return sin.calculate(value) / cos.calculate(value);
     }
 }
