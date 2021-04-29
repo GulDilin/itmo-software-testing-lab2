@@ -2,14 +2,12 @@ package guldilin.function.logarithm;
 
 import guldilin.function.CSVLogger;
 import guldilin.function.Calculable;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("Log result function tests")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -24,7 +22,7 @@ public class LogResultFunctionTest {
 
     @AfterAll
     void log() {
-        CSVLogger logger = new CSVLogger("graph_log_result_function.csv", 0.01, 5, 0.01);
+        CSVLogger logger = new CSVLogger("graph_log_result_function.csv", 0.01, 5, 0.1);
         logger.log(fun);
     }
 
@@ -50,6 +48,11 @@ public class LogResultFunctionTest {
         System.out.printf("input = %9f | expected = %9f | actual = %9f\n",
                 input, expected, actual);
         assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    void zeroTest() {
+        assertThrows(IllegalArgumentException.class, () -> fun.calculate(0));
     }
 
 }
