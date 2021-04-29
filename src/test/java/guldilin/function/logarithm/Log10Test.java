@@ -1,7 +1,6 @@
-package guldilin.function.loratithm;
+package guldilin.function.logarithm;
 
 import guldilin.function.Calculable;
-import guldilin.function.logarithm.Log10;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
