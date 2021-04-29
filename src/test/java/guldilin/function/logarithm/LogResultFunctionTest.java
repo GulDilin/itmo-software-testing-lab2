@@ -24,7 +24,7 @@ public class LogResultFunctionTest {
 
     @AfterAll
     void log() {
-        CSVLogger logger = new CSVLogger("graph_log_result_function.csv", 0.01, 5, 0.1);
+        CSVLogger logger = new CSVLogger("graph_log_result_function.csv", 0.01, 5, 0.01);
         logger.log(fun);
     }
 

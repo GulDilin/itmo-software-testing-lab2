@@ -23,7 +23,7 @@ public class Log10Test {
 
     @AfterAll
     void log() {
-        CSVLogger logger = new CSVLogger("graph_log_10.csv", 0.01, 5, 0.1);
+        CSVLogger logger = new CSVLogger("graph_log_10.csv", 0.01, 11, 0.1);
         logger.log(fun);
     }
 
