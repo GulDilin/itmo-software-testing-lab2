@@ -11,8 +11,11 @@ public class Ln extends AbstractFunction {
         double x = value - 1;
         double result = x;
         double current = x;
+        double previous = -1;
+        double accuracy = getAccuracy();
 
-        for (int i = 2; i < MAX_ITERATIONS ; i++) {
+        for (int i = 2; Math.abs(previous - result) > accuracy && i < MAX_ITERATIONS ; i++) {
+            previous = result;
             current *= ( x * -1 * (i - 1) );
             current /= i;
             result += current;
