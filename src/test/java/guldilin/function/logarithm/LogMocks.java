@@ -32,4 +32,10 @@ public class LogMocks {
         MockCSVer.setupFromCSV(fun, "src/test/resources/logarithm/mocks/log_log10_data.csv", DELTA);
         return fun;
     }
+
+    public static LogResultFunction createLogResultFunctionMock() {
+        LogResultFunction fun = mock(LogResultFunction.class);
+        MockCSVer.setupFromCSV(fun, "src/test/resources/logarithm/mocks/log_log_result_function_data.csv", DELTA);
+        return fun;
+    }
 }

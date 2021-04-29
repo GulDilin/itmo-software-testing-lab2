@@ -52,4 +52,11 @@ public class TrigMocks {
                 TrigMocks::degreesStrToRadian);
         return fun;
     }
+
+    public static TrigResultFunction createTrigResultFunctionMock() {
+        TrigResultFunction fun = mock(TrigResultFunction.class);
+        MockCSVer.setupFromCSV(fun, "src/test/resources/trig/mocks/trig_result_function_data.csv", DELTA,
+                TrigMocks::degreesStrToRadian);
+        return fun;
+    }
 }
